@@ -1,25 +1,13 @@
 import React, { createContext } from "react";
-// ! Temp
-import PropTypes from "prop-types";
 
-//project-308870521577
+// * Firebase
 import { initializeApp } from "firebase/app";
-// import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { firebaseConfig } from "./firebaseconfig";
 
 // ! Temp
 import { getAuth, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_Firebase_apiKey,
-  authDomain: process.env.REACT_APP_Firebase_authDomain,
-  projectId: process.env.REACT_APP_Firebase_projectId,
-  storageBucket: process.env.REACT_APP_Firebase_storageBucket,
-  messagingSenderId: process.env.REACT_APP_Firebase_messageSenderId,
-  appId: process.env.REACT_APP_Firebase_appId,
-  measurementId: process.env.REACT_APP_Firebase_measureId,
-};
-
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 // ! Temp
 // eslint-disable-next-line no-unused-vars
@@ -39,8 +27,4 @@ export const FirebaseContextProvider = ({ children }) => {
       {children}
     </FirebaseContext.Provider>
   );
-};
-
-FirebaseContextProvider.propTypes = {
-  children: PropTypes.node.isRequired,
 };
